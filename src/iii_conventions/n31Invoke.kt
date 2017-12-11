@@ -3,17 +3,18 @@ package iii_conventions
 import util.TODO
 
 
-class Invokable
+class Invokable{
+    var count = 0;
+    public operator fun invoke(): Invokable{
+        count++;
+        return this;
+    }
 
-fun todoTask31(): Nothing = TODO(
-    """
-        Task 31.
-        Change the class 'Invokable' to count the number of invocations:
-        for 'invokable()()()()' it should be 4.
-    """,
-    references = { invokable: Invokable -> })
+    fun getNumberOfInvocations(): Int {
+        return count;
+    }
+}
 
 fun task31(invokable: Invokable): Int {
-    todoTask31()
-//    return invokable()()()().getNumberOfInvocations()
+    return invokable()()()().getNumberOfInvocations()
 }
